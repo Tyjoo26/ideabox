@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe "idea model tests" do
   context "can submit a valid ideas" do
     it 'user can submit a valid idea' do

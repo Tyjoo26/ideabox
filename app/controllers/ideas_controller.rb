@@ -6,17 +6,15 @@ class IdeasController < ApplicationController
 
   def new
     @categories = Category.all
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.new
+
+    @idea = Idea.new
   end
 
   def create
-    @categories = Category.all
-    @category = Category.find(params[:category_id])
-    @idea = @category.ideas.create(idea_params)
+    @idea = Idea.create(idea_params)
     if @idea.save
       flash[:success] = "You've saved your brilliant idea"
-      redirect_to category_idea_path(@category, @idea)
+      redirect_to idea_path(@idea)
     else
       flash[:success] = "Please fill out the form completely to submit your idea"
       redirect :new
@@ -24,9 +22,9 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:category_id])
-    @idea = Idea.find(params[:id])
     
+    @idea = Idea.find(params[:id])
+
   end
 
 
@@ -34,6 +32,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:name, :content, :author)
+    params.require(:idea).permit(:name, :content, :category_id)
   end
 end
