@@ -7,11 +7,10 @@ Rails.application.routes.draw do
 
   resources :images, only: [:show, :index]
 
-  resources :users, only: [:new, :create, :show]
-
-  namespace :admin do
-    resources :ideas, only: [:new, :create]
+  resources :users, only: [:new, :create, :show] do
+    resources :ideas, only: [:new, :create, :update, :destroy]
   end
+
 
   namespace :admin do
     resources :categories, only: [:index, :new,:create, :destroy]
