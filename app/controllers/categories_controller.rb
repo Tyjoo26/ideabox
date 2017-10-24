@@ -5,9 +5,7 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def create
 
-  end
 
   def show
     @category = Category.find(params[:id])
