@@ -1,3 +1,6 @@
-<%= @idea.name %>
-<%= @idea.content %>
-<%= @idea.category.title %>
+<h2><%= @idea.category.title  %></h2>
+<h4><%= @idea.name %></h4>
+<li><%= @idea.content %></li>
+
+<br>
+<%= link_to "Go Back To All Ideas", user_ideas_path %>
