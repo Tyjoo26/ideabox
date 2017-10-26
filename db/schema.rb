@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 20171024214539) do
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.integer "role"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
