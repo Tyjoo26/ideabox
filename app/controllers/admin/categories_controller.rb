@@ -1,7 +1,7 @@
 class Admin::CategoriesController < ApplicationController
 
   def index
-
+    @ideas = current_user.ideas.all
   end
 
   def new
@@ -9,12 +9,13 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
+
     @category = Category.new(category_params)
     if @category.save
       flash[:success] = "You created a new #{@category.title} category!"
       redirect_to admin_categories_path
     else
-      flash[:success] = "You must create a category with a title!"
+      flash[:success] = "Category already exists, try again!"
       render :new
     end
   end
