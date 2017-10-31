@@ -1,0 +1,6 @@
+<h4>All Images</h4>
+<% @images.each do |image| %>
+<%= image.name %>
+<%= image %>
+
+<%= link_to "Create an Image", new_admin_image_path %>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'admin can create a new category' do
-  it ' a admin can create a new category through a form' do
+  it 'through a form' do
     admin_user = User.create(username: "Dingles",
                              password: "pass",
                              role: 1)

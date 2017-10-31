@@ -1,7 +1,8 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController  < Admin::BaseController
+  before_action :require_admin
 
   def index
-    @ideas = current_user.ideas.all
+    @categories = Category.all
   end
 
   def new
@@ -32,9 +33,6 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit(:title)
   end
 
-  def current_admin
-    render_404 unless current_user.admin?
-  end
 
 
 end
