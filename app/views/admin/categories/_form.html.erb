@@ -1,6 +1,6 @@
-<%= form_for @category do |f| %>
+<%= form_for @category, url: {action: "create"} do |f| %>
   <%= f.label       :title %>
   <%= f.text_field  :title %>
 
   <%= f.submit "Submit", method: "POST"%>
-  <% end %>
+<% end %>

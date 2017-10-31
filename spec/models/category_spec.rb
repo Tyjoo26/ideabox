@@ -1,16 +1,12 @@
 require 'rails_helper'
 
-describe "category model tests" do
-  context "category validation test" do
-    it 'user can submit a category with title' do
-      visit '/'
-    end
-  end
+RSpec.describe "category" do
+    context 'validates' do
+      it 'existence of title' do
+        category = Category.create
 
-
-  context "category invalid tests" do
+        expect(category).to be_invalid
+      end
 
   end
-
-
 end
